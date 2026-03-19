@@ -1,0 +1,24 @@
+2. Build the Docker Image
+docker build -t my-json-server .
+
+3. Run the Container
+docker run -d -p 3000:3000 --name json-api my-json-server
+
+Your API will be accessible at http://localhost:3000. 
+
+Optional: Use Docker Compose
+Create docker-compose.yml:
+
+version: '3'
+services:
+  json-server:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./db.json:/data/db.json
+
+Run with:
+
+docker-compose up -d
+
